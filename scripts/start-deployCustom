@@ -5,7 +5,7 @@
 : "${CUSTOM_JAR_EXEC:=}"
 
 # shellcheck source=start-utils
-. "${SCRIPTS:-/}start-utils"
+. "$(dirname "$0")/start-utils"
 isDebugging && set -x
 
 if isURL "${CUSTOM_SERVER}"; then
@@ -40,5 +40,6 @@ fi
 
 # Allow for overriding Family on custom for testing.
 export FAMILY="${FAMILY:-HYBRID}"
+export HYBRIDTYPE="${HYBRIDTYPE:-any}"
 
-exec "${SCRIPTS:-/}start-setupWorld" "$@"
+exec "$(dirname "$0")/start-spiget" "$@"

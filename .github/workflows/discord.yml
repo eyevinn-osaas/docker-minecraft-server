@@ -16,10 +16,11 @@ jobs:
   discord:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    if: github.repository_owner == 'itzg'
     steps:
       - name: on-publish
         if: github.event_name == 'release' && github.event.action == 'published'
-        uses: SethCohen/github-releases-to-discord@v1.15.0
+        uses: SethCohen/github-releases-to-discord@v1.20.0
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
       - name: on-success

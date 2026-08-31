@@ -9,7 +9,7 @@ If you want to run a specific version, you can add `-e SPONGEVERSION=1.11.2-6.1.
 Beware that current [Sponge](https://www.spongepowered.org) `STABLE` versions for Minecraft 1.12 require using [the Java 8 tag](../../versions/java.md):
 
 ``` shell
-docker run -d -v /path/on/host:/data -e TYPE=SPONGEVANILLA \
+docker run -d --pull=always -v /path/on/host:/data -e TYPE=SPONGEVANILLA \
     -p 25565:25565 -e EULA=TRUE --name mc itzg/minecraft-server:java8-multiarch
 ```
 
@@ -17,7 +17,7 @@ You can also choose to use the `EXPERIMENTAL` branch.
 Just change it with `SPONGEBRANCH`, such as:
 
 ``` shell
-$ docker run -d -v /path/on/host:/data ... \
+$ docker run -d --pull=always -v /path/on/host:/data ... \
     -e TYPE=SPONGEVANILLA -e SPONGEBRANCH=EXPERIMENTAL ...
 ```
 
@@ -38,6 +38,14 @@ Configuration options with defaults:
 !!! note
 
     Instead of using format codes in the MOTD, Limbo requires [JSON chat content](https://minecraft.wiki/w/Raw_JSON_text_format#Java_Edition). If a plain string is provided, which is the default, then it gets converted into the required JSON structure. 
+
+## NanoLimbo
+
+A [NanoLimbo](https://github.com/BoomEaro/NanoLimbo) server can be run by setting `TYPE` to `NANOLIMBO`.
+
+Note: it is a fork of the original [NanoLimbo](https://github.com/Nan1t/NanoLimbo) made by Nan1t
+
+An alternate Limbo server
 
 ## Crucible
 
